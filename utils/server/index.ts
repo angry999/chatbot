@@ -30,6 +30,12 @@ export const OpenAIStream = async (
   key: string,
   messages: Message[],
 ) => {
+  // console.log('systemPrompt.......', systemPrompt)
+  // console.log('process.env.NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT.......', process.env.NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT)
+  
+  // replaced systemPrompt to system
+  let system = process.env.NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT
+  
   let url = `${OPENAI_API_HOST}/v1/chat/completions`;
   if (OPENAI_API_TYPE === 'azure') {
     url = `${OPENAI_API_HOST}/openai/deployments/${AZURE_DEPLOYMENT_ID}/chat/completions?api-version=${OPENAI_API_VERSION}`;
@@ -53,7 +59,7 @@ export const OpenAIStream = async (
       messages: [
         {
           role: 'system',
-          content: systemPrompt,
+          content: system,
         },
         ...messages,
       ],

@@ -360,7 +360,7 @@ const Home = ({
       }}
     >
       <Head>
-        <title>Chatbot UI</title>
+        <title>LawMessenger Chatbot</title>
         <meta name="description" content="ChatGPT but better." />
         <meta
           name="viewport"
@@ -386,7 +386,7 @@ const Home = ({
               <Chat stopConversationRef={stopConversationRef} />
             </div>
 
-            <Promptbar />
+            {/* <Promptbar /> */}
           </div>
         </main>
       )}
