@@ -126,20 +126,19 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit }) =
 
   return (
     <div
-      className={`group md:px-4 ${message.role === 'assistant'
+      className={`group md:px-4 ${
+        message.role === 'assistant'
           ? 'border-b border-black/10 bg-gray-50 text-gray-800 dark:border-gray-900/50 dark:bg-[#444654] dark:text-gray-100'
           : 'border-b border-black/10 bg-white text-gray-800 dark:border-gray-900/50 dark:bg-[#343541] dark:text-gray-100'
-        }`}
+      }`}
       style={{ overflowWrap: 'anywhere' }}
     >
       <div className="relative m-auto flex p-4 text-base md:max-w-2xl md:gap-6 md:py-6 lg:max-w-2xl lg:px-0 xl:max-w-3xl">
         <div className="min-w-[40px] text-right font-bold">
           {message.role === 'assistant' ? (
-            // <IconRobot size={30} />
-            <img alt="user" src="gener.png" width="30" height="30" />
+            <IconRobot size={30} />
           ) : (
-            // <IconUser size={30} />
-            <img alt="user" src="usericon.webp" width="30" height="30" />
+            <IconUser size={30} />
           )}
         </div>
 
@@ -262,8 +261,9 @@ export const ChatMessage: FC<Props> = memo(({ message, messageIndex, onEdit }) =
                   },
                 }}
               >
-                {`${message.content}${messageIsStreaming && messageIndex == (selectedConversation?.messages.length ?? 0) - 1 ? '`▍`' : ''
-                  }`}
+                {`${message.content}${
+                  messageIsStreaming && messageIndex == (selectedConversation?.messages.length ?? 0) - 1 ? '`▍`' : ''
+                }`}
               </MemoizedReactMarkdown>
 
               <div className="md:-mr-8 ml-1 md:ml-0 flex flex-col md:flex-row gap-4 md:gap-1 items-center md:items-start justify-end md:justify-start">

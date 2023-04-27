@@ -210,7 +210,7 @@ export const SystemPrompt: FC<Props> = ({
           }`,
         }}
         placeholder={
-          t(`Type your question...`) || ''
+          t(`Enter a prompt or type "/" to select a prompt...`) || ''
         }
         value={t(value) || ''}
         rows={1}
